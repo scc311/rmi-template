@@ -70,4 +70,4 @@ docker run --rm -it --network host --name rmiclient scc311/client:latest 10
 
 ## Prebuilt Images
 
-If you wish to just test running the contents of this repository, the containers are built and published via github actions. You can run a factorize example server easily by using the `ghcr.io/scc311/factorize-server:latest` and a client with the image `ghcr.io/scc311/factorize-client:latest`.
+If you wish to just test running the contents of this repository, the containers are built and published via github actions. You can run a factorize example server easily by using the `ghcr.io/scc311/factorial-server:latest` and a client with the image `ghcr.io/scc311/factorial-client:latest`.
