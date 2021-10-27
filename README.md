@@ -6,13 +6,19 @@ This is a **template** repository that you can use for creating stages 1 and 2 o
 
 This template makes it easy to start building your coursework with source control and docker, all you need is a GitHub account and Docker installed. Because this uses docker, you don't need any Java versions installed on you machine and you can easily build and run all components of the work (including the registry).
 
-> This has only been tested on macos so far, feel free to create issues or contact a TA if you have any problems.
+## Testing
+
+Below is a table showing which platforms this has been tested on. If this works on a platform not yet verified as working (and you are comfortable using GitHub), please update this table in a Pull Request.
+
+ | Docker for MacOS | Docker for Linux | Docker for Windows (WSL2 Backend) |
+ | :--------------: | :--------------: | :-------------------------------: |
+ |        ✅         |        ❓         |                 ❓                 |
 
 ---
 
 ## Using Template Repositories
 
-  - Click the `Use this template` button on GitHib
+  - Click the `Use this Template` button on GitHib
   - When creating your version of the repository, **make sure it is a private repo**! 🔒
   - Clone your newly created repository onto you machine (or use codespaces)
   - 🎉 And its done
@@ -23,13 +29,11 @@ Optionally, you can also set up the github actions CI/CD pipeline to automatical
 
 ## Getting Started
 
-The code is both compiled and executed within the docker containers, so for both actions you'll need to use the docker CLI.
+The code is both compiled and executed within the docker containers, so for both actions you'll need to use the docker CLI. Compilation will happen during the `docker build` phase, and execution will happen as part of the `docker run` phase.
 
 If you're unfamiliar with docker, it is a complete toolset for creating process in namespaces separate to that of your normal processes. Because of this, each container needs to have all the software needed to build and run the process you wish to containerize. 
 
 For this work, the software you want to containerize are your Java RMI programs. For these, the main dependency is `java`, specifically the `jdk` to be able to compile your code and the `jre` to be able to run your code.
-
-As your RMI server and client should be seperate
 
 ### The Server
 
@@ -70,4 +74,4 @@ docker run --rm -it --network host --name rmiclient scc311/client:latest 10
 
 ## Prebuilt Images
 
-If you wish to just test running the contents of this repository, the containers are built and published via github actions. You can run a factorize example server easily by using the `ghcr.io/scc311/factorial-server:latest` and a client with the image `ghcr.io/scc311/factorial-client:latest`.
+If you wish to just test running the contents of this repository, the containers are built and published via github actions. You can run a factorial example server easily by using the `ghcr.io/scc311/factorial-server:latest` and a client with the image `ghcr.io/scc311/factorial-client:latest`.
