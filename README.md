@@ -70,8 +70,22 @@ docker run --rm -it --network host --name rmiclient scc311/client:latest 10
 ```
 > The `10` here is just the number to pass to the CLI so it can be factorized by the example code.
 
+
+### Shared Data
+
+Need a bit of storage that both the server and client containers can see? Docker can give you this via volume mounts. This lets you provide the container instances with access to a specified directory on the host's filesystem. 
+
+For example, if you need to store a keyfile that both the server and clients can read and write to, you can simply add the following to the `docker run` commands (for all servers and clients):
+
+```
+-v "$(pwd)/shared":"/shared":rw
+```
+
+This will give the containers access to read and write to the folder with the relative path `./shared`.
+
 ---
 
 ## Prebuilt Images
 
 If you wish to just test running the contents of this repository, the containers are built and published via github actions. You can run a factorial example server easily by using the `ghcr.io/scc311/factorial-server:latest` and a client with the image `ghcr.io/scc311/factorial-client:latest`.
+****
